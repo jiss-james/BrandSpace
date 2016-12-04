@@ -1,0 +1,70 @@
+:css
+  .header {
+    background: #8a8a8a;
+  }
+
+  .header .columns {
+    padding-bottom: 0;
+  }
+
+  .header p {
+    color: #fff;
+    padding-top: 15px;
+  }
+
+  .header .wrapper-inner {
+    padding: 20px;
+  }
+
+  .header .container {
+    background: transparent;
+  }
+
+  table.button.facebook table td {
+    background: #3B5998 !important;
+    border-color: #3B5998;
+  }
+
+  table.button.twitter table td {
+    background: #1daced !important;
+    border-color: #1daced;
+  }
+
+  table.button.google table td {
+    background: #DB4A39 !important;
+    border-color: #DB4A39;
+  }
+
+  .wrapper.secondary {
+    background: #f3f3f3;
+  }
+%wrapper.header
+  %container
+    %row.collapse
+      %columns{:small => "6"}
+        %img{:src => "http://placehold.it/200x50/663399"}/
+      %columns{:small => "6"}
+        %p.text-right BASIC
+%container
+  %spacer{:size => "16"}
+  %row
+    %columns{:small => "12"}
+      %h1 Hi, Susan Calvin
+      %p.lead Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, iste, amet consequatur a veniam.
+      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut optio nulla et, fugiat. Maiores accusantium nostrum asperiores provident, quam modi ex inventore dolores id aspernatur architecto odio minima perferendis, explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima quos quasi itaque beatae natus fugit provident delectus, magnam laudantium odio corrupti sit quam. Optio aut ut repudiandae velit distinctio asperiores?
+      %callout.primary
+        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit repellendus natus, sint ea optio dignissimos asperiores inventore a molestiae dolorum placeat repellat excepturi mollitia ducimus unde doloremque ad, alias eos!
+  %wrapper.secondary
+    %spacer{:size => "16"}
+    %row
+      %columns{:large => "6"}
+        %h5 Connect With Us:
+        %button.facebook.expand{:href => "http://zurb.com"} Facebook
+        %button.twitter.expand{:href => "http://zurb.com"} Twitter
+        %button.google.expand{:href => "http://zurb.com"} Google+
+      %columns{:large => "6"}
+        %h5 Contact Info:
+        %p Phone: 408-341-0600
+        %p
+          Email:
+          %a{:href => "mailto:foundation@zurb.com"} foundation@zurb.com

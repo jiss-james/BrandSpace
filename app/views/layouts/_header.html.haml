@@ -1,0 +1,26 @@
+#header
+  %nav.navbar.navbar-fixed-top.navbar-dark.bg-brand-primary-gradient
+    .container
+      = link_to "BrandSpace", root_path, class: "navbar-brand m-r-30"
+
+
+      %ul.nav.navbar-nav.pull-xs-right
+        %li.nav-item.m-r-10
+          = link_to page_path('about'), class: "nav-link" do
+            = icon 'plus-square', class: 'm-r-5'
+            About
+            %span.hidden-sm-down Us
+        %li.nav-item.m-r-10
+          = link_to page_path('contact'), class: "nav-link" do
+            = icon 'envelope-o', class: 'm-r-5'
+            %span.hidden-xs-down Contact
+            %span.hidden-sm-up Us
+
+        - if user_signed_in?
+          %li.nav-item.dropdown
+            %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"}
+              = icon 'user', class: 'm-r-5'
+              = current_user.first_name
+            .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+              %a.dropdown-item{:href => "/users/edit"} My Account
+              = link_to('Logout', destroy_user_session_path, :method => :delete, :class => "dropdown-item")

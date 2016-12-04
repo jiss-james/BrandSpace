@@ -1,0 +1,23 @@
+!!!
+%html
+  = render 'layouts/head'
+  %body{class: "#{params['controller']} #{params['action']}"}
+
+    = render 'layouts/page_top'
+
+    .container
+      .row.flex-items-xs-center
+        .col-xs-6.m-t-50
+
+          .row
+            .col-md-6
+              %h1 BrandSpace
+            .col-md-6.text-xs-right
+              - unless current_page?('/users/sign_up')
+                %a.btn.btn-secondary{href: '/users/sign_up'} Sign Up
+
+
+          .card.card-block.m-t-50.card-shadow
+            = yield
+
+          -# = render "devise/shared/links"

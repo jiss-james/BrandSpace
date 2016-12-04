@@ -1,0 +1,8 @@
+%p#notice= notice
+
+
+= @activity.inspect
+
+= link_to 'Edit', edit_company_activity_path(@company, @activity)
+|
+= link_to 'Back', company_activities_path(@company)

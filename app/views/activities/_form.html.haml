@@ -1,0 +1,48 @@
+= form_for @activity, url: company_activities_path(@company), method: :post do |f|
+	- if @activity.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@activity.errors.count, "error")} prohibited this activity from being saved:"
+			%ul
+				- @activity.errors.full_messages.each do |msg|
+					%li= msg
+
+	.field
+		= f.label :activity_name
+		%br/
+		= f.text_field :activity_name
+	.field
+		= f.label :description
+		%br/
+		= f.text_area :description
+	.field
+		= f.label :start_date
+		%br/
+		= f.date_select :start_date, default: Date.today, start_year: Date.today.year
+	.field
+		%br/
+		= f.label :end_date
+		%br/
+		= f.date_select :end_date, default: Date.today, start_year: Date.today.year
+	.field
+		%br/
+		= f.label :location
+		%br/
+		= f.text_field :location
+	.field
+		%br/
+		= f.label :vehicle
+		= f.check_box :vehicle
+	.field
+		%br/
+		= f.label :mobile
+		%br/
+		= f.text_field :mobile
+	.field
+		= f.label :telephone
+		%br/
+		= f.text_field :telephone
+
+
+	.actions
+	%br/
+	= f.submit 'Save'

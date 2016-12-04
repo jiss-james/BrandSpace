@@ -1,0 +1,40 @@
+.container
+  .row
+    .col-md-12
+      %h1 List of Companies
+
+  .row
+
+    - @companies.each do |company|
+      .col-md-6
+        .card
+          %img.card-img-top{:alt => "Card image cap", :src => "..."}/
+          .card-block
+            %h4.card-title= company.company_name
+            %p.card-text= company.description
+            = link_to 'Show', company, class: "btn btn-primary"
+
+
+%br
+= link_to 'New Company', new_company_path
+
+-# %table
+-#   %thead
+-#     %tr
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @companies.each do |company|
+-#       %tr
+-#         %td= company.company_name
+-#         %td= link_to 'Show', company
+-#         %td= link_to 'Edit', edit_company_path(company)
+-#         %td= link_to 'Destroy', company, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+
+
+%br
+=link_to 'Back', root_path

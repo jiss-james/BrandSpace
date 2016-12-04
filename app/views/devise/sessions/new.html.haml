@@ -1,0 +1,27 @@
+.row.flex-items-xs-center
+  .col-xs-11.m-b-30
+
+    %a.btn.btn-primary.btn-full Connect with Facebook
+
+    %hr
+
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: 'form-control', placeholder: 'Your Email Address', autofocus: true
+
+      .form-group
+        = f.label :password
+        = f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Your Password', autofocus: true
+        %br/
+
+        - if devise_mapping.rememberable?
+          .form-check
+            = f.label :remember_me, class: 'form-check-label' do
+              = f.check_box :remember_me
+              Remember me
+
+      .row
+        .col-sm-12
+          = f.submit "Sign in", class: 'btn btn-primary btn-full'
