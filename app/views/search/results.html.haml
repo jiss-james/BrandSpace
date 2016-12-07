@@ -1,0 +1,24 @@
+
+- @results.each do |result|
+
+  = result.class
+
+  - if result.class.to_s == "Company"
+    .card.card-block
+      %h4.card-title= result.company_name
+      %p.card-text= result.description
+      %a.btn.btn-primary{:href => "#"} Go somewhere
+  - elsif result.class.to_s == "Activity"
+    hello activity
+    .card.card-block
+      %h4.card-title= result.activity_name
+      %p.card-text= result.description
+      %a.btn.btn-primary{:href => "#"} Go somewhere
+  - elsif result.class.to_s == "User"
+    .card.card-block
+      %h4.card-title= result.user_first_name
+      %p.card-text= result.profession
+      %a.btn.btn-primary{:href => "#"} Go somewhere
+
+
+= @results.inspect

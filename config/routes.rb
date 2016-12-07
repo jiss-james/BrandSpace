@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :activities
   end
 
+  get 'search', to: 'search#results'
+
 end

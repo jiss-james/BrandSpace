@@ -7,6 +7,7 @@ class Ability
     if user.nil?
       # guest user
     else
+      can :create, [Company,Activity]
       can [:manage], Company do |company|
            company.try(:user) == user
        end

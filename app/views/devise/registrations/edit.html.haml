@@ -6,41 +6,51 @@
   .form-group.row
     = f.label :first_name, class: "col-xs-3 col-form-label"
     .col-xs-9
-      = f.label :first_name, class: "form-control"
+      = f.text_field :first_name, class: "form-control"
+  .form-group.row
+    = f.label :last_name, class: "col-xs-3 col-form-label"
+    .col-xs-9
+      = f.text_field :last_name, class: "form-control"
+  %fieldset.form-group
+    %legend Gender
+    .field
+      - User.genders.keys.each do |gender|
+        = f.radio_button :gender, gender
+        = f.label gender.to_sym
 
+  .form-group.row
+    = f.label :date_of_birth, class: "col-xs-3 col-form-label"
+    .col-xs-9
+      = f.date_select :date_of_birth, start_year: Date.today.year - 18, end_year: Date.today.year - 100, class: "form-control dropdown.open"
+  -# .dropdown.open
+  -# %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+  -#   Dropdown button
+  -# .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+  -#   %a.dropdown-item{:href => "#"} Action
+  -#   %a.dropdown-item{:href => "#"} Another action
+  -#   %a.dropdown-item{:href => "#"} Something else here
 
-
- 
-  .field
-    = f.label :last_name
-    %br/
-    = f.text_field :last_name
-  %br/
-  .field
-    - User.genders.keys.each do |gender|
-      = f.radio_button :gender, gender
-      = f.label gender.to_sym
   .field
     %br/
     = f.label :date_of_birth
     %br/
     = f.date_select :date_of_birth, start_year: Date.today.year - 18, end_year: Date.today.year - 100
-  .field
-    = f.label :profession
-    %br/
-    = f.text_field :profession
-  .field
-    = f.label :description
-    %br/
-    = f.text_area :description
-  .field
-    = f.label :work_experience
-    %br/
-    = f.text_area :work_experience
-  .field
-    = f.label :current_location
-    %br/
-    = f.text_field :current_location
+  .form-group.row
+    = f.label :profession, class: "col-xs-3 col-form-label"
+    .col-xs-9
+      = f.text_field :profession, class: "form-control"
+  .form-group.row
+    = f.label :description, class: "col-xs-3 col-form-label"
+    .col-xs-9
+      = f.text_field :description, class: "form-control"
+  .form-group.row
+    = f.label :work_experience, class: "col-xs-3 col-form-label"
+    .col-xs-9
+      = f.text_field :work_experience, class: "form-control"
+  .form-group.row
+    = f.label :current_location, class: "col-xs-3 col-form-label"
+    .col-xs-9
+      = f.text_field :current_location, class: "form-control"
   .field
     %br/
     = f.label :vehicle
@@ -51,23 +61,35 @@
     = f.check_box :available_for_work
     %br/
     %br/
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email
+  .form-group.row
+    = f.label :email, class: "col-xs-3 col-form-label"
+    .col-xs-9
+      = f.email_field :email, class: "form-control"
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
+      .form-group.row
+        = f.label :password, class: "col-xs-3 col-form-label"
+        %i (leave blank if you don't want to change it)
+        %br/
+        .col-xs-9
+          = f.text_field :password, autocomplete: "off", class: "form-control"
+          - if @minimum_password_length
+            %br/
+            %em
+              = @minimum_password_length
+              characters minimum
+
+  -# .field
+  -#   = f.label :password
+  -#   %i (leave blank if you don't want to change it)
+  -#   %br/
+  -#   = f.password_field :password,
+  -#   - if @minimum_password_length
+  -#     %br/
+  -#     %em
+  -#       = @minimum_password_length
+  -#       characters minimum
   .field
     = f.label :password_confirmation
     %br/

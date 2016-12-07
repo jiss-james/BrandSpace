@@ -1,6 +1,7 @@
 %p#notice= notice
 %br
 
+
 %h3= @company.company_name
 %br
 
@@ -8,16 +9,20 @@
 
 %p= @company.location
 
-- @company.activities.each do |activity|
-  = activity.activity_name
-  = link_to "edit #{activity.activity_name}", edit_company_activity_path(@company, activity)
-  = link_to "view #{activity.activity_name}", company_activity_path(@company, activity)
-
-= link_to "All Activities",  company_activities_path(@company)
+= link_to 'Edit', edit_company_path(@company)
+%br
 
 - if can? :create, @company.activities
   = link_to "New Activity", new_company_activity_path(@company)
+  %br
+- @company.activities.each do |activity|
+  = activity.activity_name
+  = link_to "edit", edit_company_activity_path(@company, activity)
+  = link_to "view", company_activity_path(@company, activity)
+  -# = link_to "edit #{activity.activity_name}", edit_company_activity_path(@company, activity)
+  -# = link_to "view #{activity.activity_name}", company_activity_path(@company, activity)
+  %br
 
-= link_to 'Edit', edit_company_path(@company)
+
 |
 = link_to 'Back', companies_path

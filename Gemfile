@@ -51,6 +51,8 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'cancancan', '~> 1.10'
 
+# gem 'ransack', '~> 1.8', '>= 1.8.2'
+
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'ransack',             github: 'activerecord-hackery/ransack'
 gem 'draper',              '> 3.x'

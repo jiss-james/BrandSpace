@@ -3,6 +3,13 @@
     .container
       = link_to "BrandSpace", root_path, class: "navbar-brand m-r-30"
 
+      = form_tag("/search", method: "get", class: "form-inline pull-xs-left") do
+        = text_field_tag(:q, "", class:"form-control", placeholder: "Search...")
+        %select#category.form-control{:name => "category"}
+          %option{:value => "activity"} Activity
+          %option{:value => "company"} Company
+          %option{:value => "user"} User
+        = submit_tag("Search", class: "btn btn-secondary")
 
       %ul.nav.navbar-nav.pull-xs-right
         %li.nav-item.m-r-10
@@ -13,8 +20,8 @@
         %li.nav-item.m-r-10
           = link_to page_path('contact'), class: "nav-link" do
             = icon 'envelope-o', class: 'm-r-5'
-            %span.hidden-xs-down Contact
-            %span.hidden-sm-up Us
+            Contact
+            %span.hidden-sm-down Us
 
         - if user_signed_in?
           %li.nav-item.dropdown
@@ -24,3 +31,14 @@
             .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
               %a.dropdown-item{:href => "/users/edit"} My Account
               = link_to('Logout', destroy_user_session_path, :method => :delete, :class => "dropdown-item")
+
+  - if user_signed_in?
+    %nav.navbar.navbar-full.navbar-dark.bg-inverse
+      .container
+        %ul.nav.navbar-nav
+          %li.nav-item
+            %a.nav-link{:href => "/companies"} My Companies
+          %li.nav-item
+            %a.nav-link{:href => "/users/edit"} User Profile
+          %li.nav-item
+            %a.nav-link{:href => "#"} Messages
